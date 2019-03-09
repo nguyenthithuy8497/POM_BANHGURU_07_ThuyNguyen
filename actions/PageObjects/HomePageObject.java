@@ -3,6 +3,7 @@ package PageObjects;
 import org.openqa.selenium.WebDriver;
 
 import PageUI.HomePageUI;
+import PageUI.NewCustomerPageUI;
 import commons.AbstractPage;
 
 public class HomePageObject extends AbstractPage {
@@ -13,9 +14,13 @@ public class HomePageObject extends AbstractPage {
 	
 	public boolean isHomePageDisplayed() {
 		waitToElementVisible(driver, HomePageUI.HOMEPAGE_WELCOME_MESSAGE);
-		return isControlDisplayed(driver, HomePageUI.HOMEPAGE_WELCOME_MESSAGE);
+		boolean status= isControlDisplayed(driver, HomePageUI.HOMEPAGE_WELCOME_MESSAGE);
+		return status;
 	}
-
+	public boolean isNewCustomerPageUnDisplay() {
+		waitToElementInvisible(driver, NewCustomerPageUI.NEW_CUSTOMER_TEXT);
+		return isControlUndisplay(driver, NewCustomerPageUI.NEW_CUSTOMER_TEXT);
+	}
 	
 
 }

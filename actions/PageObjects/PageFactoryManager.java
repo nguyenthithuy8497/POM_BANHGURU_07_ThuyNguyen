@@ -33,6 +33,24 @@ public class PageFactoryManager {
 		return new HomePageObject(driver);
 	}
 	
+	public static EditCustomerPageObject getEditCustomerpage(WebDriver driver) {
+		return new EditCustomerPageObject(driver);
+	}
+	
+	public static WithdrawalPageObject getWithdrawalPage(WebDriver driver) {
+		return new WithdrawalPageObject(driver);
+	}
+	
+	public static BalanceEnquiryPageObject getBalanceEnquiryPage(WebDriver driver) {
+		return new BalanceEnquiryPageObject(driver);
+	}
+	
+	public static DeleteCustomerPageObject getDeleteCustomerPage(WebDriver drvier) {
+		return new DeleteCustomerPageObject(drvier);
+	}
+	public static DeleteAccountPageObject getDeleteAccountPage(WebDriver drvier) {
+		return new DeleteAccountPageObject(drvier);
+	}
 	
 	
 }
