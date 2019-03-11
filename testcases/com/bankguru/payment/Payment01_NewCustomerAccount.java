@@ -47,7 +47,7 @@ public class Payment01_NewCustomerAccount extends AbstractTest {
 		newName = "Automation Test";
 		gender = "f";
 		genderValue = "female";
-		newDob = "01/01/2000";
+		newDob = "01-01-2000";
 		newDobValue = "2000-01-01";
 		newAddress = "123 Address";
 		newCity = "lao Cai";
@@ -82,7 +82,7 @@ public class Payment01_NewCustomerAccount extends AbstractTest {
 		newCustomerPage.inputToDynamicTextbox(driver, "emailid", newEmail);
 		newCustomerPage.inputToDynamicTextbox(driver, "password", newPassword);
 
-		newCustomerPage.clickToDynamicButton(driver, "dob");
+	//	newCustomerPage.clickToDynamicButton(driver, "dob");
 		newCustomerPage.inputToDynamicTextbox(driver, "dob", newDob);
 
 		newCustomerPage.inputToDynamicTextArea(driver, "addr", newAddress);

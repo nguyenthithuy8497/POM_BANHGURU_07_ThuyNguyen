@@ -50,7 +50,7 @@ public class RegisterLogin_Level_8_Assert_Verify_Log_Report extends AbstractTest
 		
 	}
 	
-	
+	@Test
 	public void TC_03_Assert_Verify_Log_Report() {
 		
 		System.out.println("TestCase_03-step_01: open new customer pgae");
