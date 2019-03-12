@@ -24,9 +24,14 @@ import commons.AbstractTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
+import java.util.List;
+
 import javax.swing.plaf.basic.BasicLabelUI;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
@@ -81,13 +86,11 @@ public class Payment01_NewCustomerAccount extends AbstractTest {
 		newCustomerPage.inputToDynamicTextbox(driver, "telephoneno", newPhoneNumber);
 		newCustomerPage.inputToDynamicTextbox(driver, "emailid", newEmail);
 		newCustomerPage.inputToDynamicTextbox(driver, "password", newPassword);
-
-	//	newCustomerPage.clickToDynamicButton(driver, "dob");
-		newCustomerPage.inputToDynamicTextbox(driver, "dob", newDob);
-
 		newCustomerPage.inputToDynamicTextArea(driver, "addr", newAddress);
-		newCustomerPage.clickToDynamicRadioButton(driver, gender);
+		newCustomerPage.clickToDynamicRadioButton(driver, gender);	
+		newCustomerPage.inputDateTextbox(driver, "dob", newDob);
 		newCustomerPage.clickToDynamicButton(driver, "sub");
+		
 
 		System.out.println("TestCase_01-step_03: verify customer register success");
 		verifyTrue(newCustomerPage.isDynamicPageOrMessageDisplay(driver, "Customer Registered Successfully!!!"));
@@ -245,7 +248,7 @@ public class Payment01_NewCustomerAccount extends AbstractTest {
 	}
 	
 	@Test
-	public void TC_08_DeleteAllAccountOfCustomer(){
+	public void TC_08_DeleteAllAccountOfCustomer() throws Exception{
 		System.out.println("TestCase_08-Step_01: Open Delete Account Page");
 		balanceEnquiryPage.openDynamicMorePage(driver, "Delete Account");
 		deleteAccountPage= PageFactoryManager.getDeleteAccountPage(driver);
@@ -258,13 +261,18 @@ public class Payment01_NewCustomerAccount extends AbstractTest {
 		deleteAccountPage.clickToDynamicButton(driver, "AccSubmit");
 		
 		System.out.println("TestCase_08-Step_04: Accept Alert");
+		Thread.sleep(2000);
+		verifyEquals(deleteAccountPage.getTextAlert(driver), "Do you really want to delete this Account?");
 		deleteAccountPage.acceptAlert(driver);
+		Thread.sleep(2000);
 		verifyEquals(deleteAccountPage.getTextAlert(driver), "Account Deleted Sucessfully");
+		Thread.sleep(2000);
 		deleteAccountPage.acceptAlert(driver);
+		Thread.sleep(2000);
 	}
 	
 	@Test
-	public void TC_09_DeleteAllAccountOfCustomer(){
+	public void TC_09_DeleteAllAccountOfCustomer() throws Exception{
 		System.out.println("TestCase_09-Step_01: Open Delete Customer Page");
 		homePage.openDynamicMorePage(driver, "Delete Customer");
 		deleteCustomerPage= PageFactoryManager.getDeleteCustomerPage(driver);
@@ -277,7 +285,9 @@ public class Payment01_NewCustomerAccount extends AbstractTest {
 		deleteCustomerPage.clickToDynamicButton(driver, "AccSubmit");
 		
 		System.out.println("TestCase_09-Step_04: Accept alert");
+		Thread.sleep(2000);
 		deleteCustomerPage.acceptAlert(driver);
+		Thread.sleep(2000);
 		verifyEquals(deleteCustomerPage.getTextAlert(driver), "Customer deleted Successfully");
 		deleteCustomerPage.acceptAlert(driver);
 	
