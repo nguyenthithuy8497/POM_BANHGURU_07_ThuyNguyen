@@ -649,9 +649,22 @@ public class AbstractPage {
 	
 	public void inputToDynamicTextbox(WebDriver driver, String textboxNameID, String valueToSendkey) {
 		waitToElementVisible(driver, AbstractPageUI.DYNAMIC_TEXTBOX_BUTTON,textboxNameID);
+		
 		sendkeyToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_BUTTON, valueToSendkey,textboxNameID);
+	}
+	
+	//do date co dang calender
+	public void inputDateTextbox(WebDriver driver, String textboxNameID, String valueToSendkey ) {
+		
+		WebElement inputs = driver.findElement(By.xpath(AbstractPageUI.DATE_TEXTBOX));
+		    ((JavascriptExecutor) driver).executeScript(
+		                "arguments[0].removeAttribute('type')",inputs);
+		    sendkeyToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_BUTTON, valueToSendkey,textboxNameID);
+
 		
 	}
+	
+	
 	public void inputToDynamicTextArea(WebDriver driver, String textAreaNameID, String valueToSendkey) {
 		waitToElementVisible(driver, AbstractPageUI.DYNAMIC_TEXT_AREA,textAreaNameID);
 		sendkeyToElement(driver, AbstractPageUI.DYNAMIC_TEXT_AREA, valueToSendkey,textAreaNameID);
