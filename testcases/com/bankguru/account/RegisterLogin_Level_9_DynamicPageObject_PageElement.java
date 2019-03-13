@@ -56,7 +56,7 @@ public class RegisterLogin_Level_9_DynamicPageObject_PageElement extends Abstrac
 	
 
 	@Test(description="TC01-Register To System")
-	public void TC_01_RegisterToSystem() {
+	public void TC_01_RegisterToSystem() throws Exception {
 		
 		loginUrl = loginPage.getLoginPageUrl();
 		registerPage=loginPage.clickToHereLink();
@@ -70,7 +70,7 @@ public class RegisterLogin_Level_9_DynamicPageObject_PageElement extends Abstrac
 	}
 
 	@Test(description="TC02-Login to system")
-	public void TC_02_LoginWithAboveInformation() {
+	public void TC_02_LoginWithAboveInformation() throws Exception {
 		loginPage = registerPage.openLoginPage(loginUrl);
 		loginPage.inputToUserIDTextbox(userID);
 		loginPage.inputToPasswordTextbox(password);
@@ -89,11 +89,11 @@ public class RegisterLogin_Level_9_DynamicPageObject_PageElement extends Abstrac
 		verifyTrue(newAccountPage.isDynamicPageOrMessageDisplay(driver, "Add new account form"));
 		//NewAccount >Deposite
 		depositPage = (DepositePageObject) newAccountPage.openDynamicPage(driver, "Deposit");
-		verifyTrue(newAccountPage.isDynamicPageOrMessageDisplay(driver, "Amount Deposit Form"));
+		verifyTrue(depositPage.isDynamicPageOrMessageDisplay(driver, "Amount Deposit Form"));
 		
 		//Deposite > FundTransfer
 		funTransferPage = (FundTransferPageObject) depositPage.openDynamicPage(driver, "Fund Transfer");
-		verifyTrue(newAccountPage.isDynamicPageOrMessageDisplay(driver, "Fund transfer"));
+		verifyTrue(funTransferPage.isDynamicPageOrMessageDisplay(driver, "Fund transfer"));
 		
 		//ex:  FundTransfer > homePage
 		

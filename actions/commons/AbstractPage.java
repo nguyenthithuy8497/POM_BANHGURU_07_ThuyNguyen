@@ -344,11 +344,28 @@ public class AbstractPage {
 
 	}
 
-	public void clickElementByJavascript(WebDriver driver, String locator) {
+	public Object clickElementByJavascript(WebDriver driver, String locator) {
+		try {
 		WebElement element = driver.findElement(By.xpath(locator));
-		JavascriptExecutor je = (JavascriptExecutor) driver;
-		je.executeScript("arguments[0].click();", element);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return js.executeScript("arguments[0].click();", element);
+		}catch (Exception e) {
+			e.getMessage();
+			return null;
+		}
 	}
+	
+	public Object clickElementByJavascript(WebDriver driver, String locator, String... dynamicValue) {
+		try {
+		WebElement element = driver.findElement(By.xpath(locator));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return js.executeScript("arguments[0].click();", element);
+		}catch (Exception e) {
+			e.getMessage();
+			return null;
+		}
+	}
+
 
 	public void switchToIframe(WebDriver driver, String locator) {
 		List<WebElement> elements = driver.findElements(By.xpath(locator));

@@ -38,7 +38,7 @@ public class RegisterLogin_Level_8_Assert_Verify_Log_Report extends AbstractTest
 	
 	@Parameters("browser")
 	@BeforeClass 
-	public void beforeClass(String browserName)  {
+	public void beforeClass(String browserName) throws Exception  {
 		driver = openMultiBrowser(browserName);
 		
 		// Mo url > vao LoginPage

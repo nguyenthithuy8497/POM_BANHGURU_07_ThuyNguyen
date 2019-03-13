@@ -2,6 +2,7 @@ package PageObjects;
 
 import org.openqa.selenium.WebDriver;
 
+import PageUI.LoginPageUI;
 import PageUI.RegisterPageUI;
 import commons.AbstractPage;
 
@@ -16,9 +17,15 @@ public class RegisterPageObject extends AbstractPage{
 		senkeyToElement(driver, RegisterPageUI.EMAILID_TEXTBOX, email);
 		
 	}
-	public void clickToSubmitButton() {
+	public void clickToSubmitButton() throws Exception {
 		waitToElementVisible(driver, RegisterPageUI.SUBMIT_BUTTON);
+		if(driver.toString().toLowerCase().contains("internetexplorer")) {
+			clickToElementByJS(driver, RegisterPageUI.SUBMIT_BUTTON);
+			Thread.sleep(3000);
+		}
+		else {
 		clickToElement(driver, RegisterPageUI.SUBMIT_BUTTON);
+		}
 		
 	}
 	public String getUserIDText() {

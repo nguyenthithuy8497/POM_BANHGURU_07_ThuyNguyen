@@ -42,7 +42,7 @@ public class RegisterLogin_Level_4_PageFactory extends AbstractTest {
 	
 
 	@Test
-	public void TC_01_RegisterToSystem() {
+	public void TC_01_RegisterToSystem() throws Exception {
 		
 		loginUrl = loginPage.getLoginPageUrl();
 		registerPage=loginPage.clickToHereLink();
@@ -56,7 +56,7 @@ public class RegisterLogin_Level_4_PageFactory extends AbstractTest {
 	}
 
 	@Test
-	public void TC_02_LoginWithAboveInformation() {
+	public void TC_02_LoginWithAboveInformation() throws Exception {
 		loginPage = registerPage.openLoginPage(loginUrl);
 		loginPage.inputToUserIDTextbox(userID);
 		loginPage.inputToPasswordTextbox(password);

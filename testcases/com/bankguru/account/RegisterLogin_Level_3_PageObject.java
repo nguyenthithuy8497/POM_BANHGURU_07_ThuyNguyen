@@ -44,7 +44,7 @@ public class RegisterLogin_Level_3_PageObject extends AbstractTest {
 	
 
 	@Test
-	public void TC_01_RegisterToSystem() {
+	public void TC_01_RegisterToSystem() throws Exception {
 		
 		loginUrl = loginPage.getLoginPageUrl();
 		loginPage.clickToHereLink();
@@ -62,7 +62,7 @@ public class RegisterLogin_Level_3_PageObject extends AbstractTest {
 	}
 
 	@Test
-	public void TC_02_LoginWithAboveInformation() {
+	public void TC_02_LoginWithAboveInformation() throws Exception {
 		registerPage.openLoginPage(loginUrl);
 		//open Login Url > vao Login Page lại
 		loginPage= new LoginPageObject(driver);

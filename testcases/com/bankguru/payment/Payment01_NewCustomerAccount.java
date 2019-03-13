@@ -39,13 +39,13 @@ public class Payment01_NewCustomerAccount extends AbstractTest {
 
 	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName) throws Exception {
 		driver = openMultiBrowser(browserName);
-
 		loginPage = PageFactoryManager.getLoginPage(driver);
 		loginPage.inputToUserIDTextbox(RegisterLogin_Global_Register.USER_ID);
 		loginPage.inputToPasswordTextbox(RegisterLogin_Global_Register.PASSWORD);
 		homePage = loginPage.clickToLoginButton();
+		
 		Assert.assertTrue(homePage.isHomePageDisplayed());
 
 		/* input data */

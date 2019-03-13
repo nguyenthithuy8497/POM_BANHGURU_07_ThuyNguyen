@@ -40,7 +40,7 @@ public class RegisterLogin_Level_7_CheckUndisplay_OverrideTimeout extends Abstra
 	
 	@Parameters("browser")
 	@BeforeClass 
-	public void beforeClass(String browserName)  {
+	public void beforeClass(String browserName) throws Exception  {
 		driver = openMultiBrowser(browserName);
 		
 		// Mo url > vao LoginPage

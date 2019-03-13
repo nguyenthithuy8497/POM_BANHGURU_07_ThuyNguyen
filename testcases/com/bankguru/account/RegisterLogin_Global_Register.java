@@ -44,7 +44,7 @@ public class RegisterLogin_Global_Register extends AbstractTest {
 	
 
 	@Test
-	public void TC_01_RegisterToSystem(Method testMethod) {
+	public void TC_01_RegisterToSystem(Method testMethod) throws Exception {
 		System.out.println("=========Start: " +testMethod.getName()+"======");
 
 		System.out.println("TestCase_01-Step_01: click to here link");

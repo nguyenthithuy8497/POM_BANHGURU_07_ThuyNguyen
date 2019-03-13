@@ -38,7 +38,7 @@ public class RegisterLogin_Level_6_DynamicLocator_RestParameter extends Abstract
 	
 	@Parameters("browser")
 	@BeforeClass 
-	public void beforeClass(String browserName)  {
+	public void beforeClass(String browserName) throws Exception  {
 		driver = openMultiBrowser(browserName);
 		
 		// Mo url > vao LoginPage
